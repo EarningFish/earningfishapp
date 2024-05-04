@@ -137,10 +137,10 @@ class NoFishFoundTabContainerPageState
                   ),
                   SizedBox(height: 14.v),
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 17.h),
+                    margin: EdgeInsets.symmetric(horizontal: 20.h),
                     padding: EdgeInsets.symmetric(
-                      horizontal: 15.h,
-                      vertical: 7.v,
+                      horizontal: 20.h,
+                      vertical: 10.v,
                     ),
                     decoration: AppDecoration.outlineIndigo9001.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder10,
@@ -206,20 +206,28 @@ class NoFishFoundTabContainerPageState
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
+                                padding: const EdgeInsets.only(bottom: 15.0),
                                 child: Text(
-                                  "Overall P&L".tr,
-                                  style: CustomTextStyles.bodySmallGray600,
-                                ),
+                                  'Overall P&L',
+                                  style: TextStyle(
+                                    color: Color(0xFF6F6F6F),
+                                    fontSize: 12,
+                                    fontFamily: 'DM Sans',
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                )
                               ),
-                              Text(
-                                '+409',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 26,
-                                  fontFamily: 'DM Sans',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0.04,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 2.0),
+                                child: Text(
+                                  '+409',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 26,
+                                    fontFamily: 'DM Sans',
+                                    fontWeight: FontWeight.w700,
+                                    height: 0.04,
+                                  ),
                                 ),
                               )
                             ],
@@ -423,6 +431,8 @@ class NoFishFoundTabContainerPageState
           fontWeight: FontWeight.w500,
         ),
         indicatorColor: appTheme.indigo900,
+        dividerColor: Colors.transparent,
+
         tabs: [
           Tab(
             child: Text(

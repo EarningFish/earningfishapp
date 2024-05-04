@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../../core/app_export.dart';
 import '../../../theme/custom_button_style.dart';
 import '../../../widgets/custom_elevated_button.dart';
@@ -21,6 +22,7 @@ class UserprofileItemWidget extends StatelessWidget {
       ),
       decoration: AppDecoration.shadow.copyWith(
         borderRadius: BorderRadiusStyle.roundedBorder12,
+        color: Colors.white
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -96,7 +98,7 @@ class UserprofileItemWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 2.v),
+          SizedBox(height: 20.v),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -105,12 +107,18 @@ class UserprofileItemWidget extends StatelessWidget {
                 children: [
                   Opacity(
                     opacity: 0.9,
-                    child: Text(
-                      userprofileItemModelObj.nemoFishText!,
-                      style: CustomTextStyles.titleSmallBlack900,
-                    ),
+                    child:Text(
+                      'Nemo Fish',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        fontWeight: FontWeight.w700,
+                        height: 0.08,
+                      ),
+                    )
                   ),
-                  SizedBox(height: 4.v),
+                  SizedBox(height: 15.v),
                   Container(
                     width: 100,
                     height: 30,
@@ -152,33 +160,35 @@ class UserprofileItemWidget extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SizedBox(width: 3),
-                        Container(
-                          width: 10,
-                          height: 10,
-                          padding: const EdgeInsets.only(
-                            top: 0.20,
-                            left: 0.19,
-                            right: 0.20,
-                            bottom: 0.20,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 9.61,
-                                height: 9.60,
-                                child: Stack(children: [
+                        const SizedBox(width: 5),
+                        Expanded(
+                          child: Container(
+                            width: 10,
+                            height: 10,
+                            padding: const EdgeInsets.only(
+                              top: 0.20,
+                              left: 0.19,
+                              right: 0.20,
+                              bottom: 0.20,
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 9.61,
+                                  height: 9.60,
+                                  child: Stack(children: [
                                     CustomImageView(
-                                          imagePath: ImageConstant.imgFishCoinIcon,
-                                          height: 30.adaptSize,
-                                          width: 30.adaptSize,
-                                        ),
-                                    ]),
-                              ),
-                            ],
+                                      imagePath: ImageConstant.imgFishCoinIcon,
+                                      height: 30.adaptSize,
+                                      width: 30.adaptSize,
+                                    ),
+                                  ]),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],

@@ -21,6 +21,7 @@ class UserprofileItemWidget extends StatelessWidget {
       ),
       decoration: AppDecoration.shadow.copyWith(
         borderRadius: BorderRadiusStyle.roundedBorder12,
+        color: Colors.white
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -96,7 +97,7 @@ class UserprofileItemWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 2.v),
+          SizedBox(height: 20.v),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -106,11 +107,17 @@ class UserprofileItemWidget extends StatelessWidget {
                   Opacity(
                     opacity: 0.9,
                     child: Text(
-                      userprofileItemModelObj.nemoFishText!,
-                      style: CustomTextStyles.titleSmallBlack900,
-                    ),
+                      'Nemo Fish',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontFamily: 'DM Sans',
+                        fontWeight: FontWeight.w700,
+                        height: 0.08,
+                      ),
+                    )
                   ),
-                  SizedBox(height: 4.v),
+                  SizedBox(height: 15.v),
                   Container(
                     width: 100,
                     height: 30,

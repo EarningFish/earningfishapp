@@ -104,7 +104,7 @@ class MyFishScreenPageState extends State<MyFishScreenPage>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "9 Fish".tr,
+            "2 Fish".tr,
             style: CustomTextStyles.bodyMediumGray60001,
           ),
           SizedBox(height: 11.v),

@@ -23,7 +23,6 @@ class AddFundScreenPage extends StatelessWidget {
       child: AddFundScreenPage(),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(

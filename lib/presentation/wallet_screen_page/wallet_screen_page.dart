@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
@@ -111,10 +112,41 @@ class WalletScreenPage extends StatelessWidget {
                 text: "Wallet".tr,
               ),
               actions: [
-                AppbarTrailingIconbutton(
-                  imagePath: ImageConstant.imgNotification_1,
-                  margin: EdgeInsets.symmetric(horizontal: 14.h),
-                )
+                Container(
+                  height: 27.v,
+                  width: 34.h,
+                  padding: EdgeInsets.symmetric(horizontal: 5.h),
+                  decoration: AppDecoration.shadow.copyWith(
+                    borderRadius: BorderRadiusStyle.circleBorder17,
+                    color: Color(0x19080450),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.topRight,
+                    children: [
+                      CustomImageView(
+                        imagePath: ImageConstant.imgNotification_1,
+                        height: 23.v,
+                        width: 24.h,
+                        alignment: Alignment.topCenter,
+                        margin: EdgeInsets.only(bottom: 4.v),
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          height: 4.adaptSize,
+                          width: 4.adaptSize,
+                          margin: EdgeInsets.fromLTRB(14.h, 4.v, 6.h, 18.v),
+                          decoration: BoxDecoration(
+                            color: appTheme.red600,
+                            borderRadius: BorderRadius.circular(
+                              2.h,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -392,42 +424,35 @@ class WalletScreenPage extends StatelessWidget {
       ),
     );
   }
-
   /// Section Widget
   Widget _buildTransaction(BuildContext context) {
     return BlocSelector<WalletScreenBloc, WalletScreenState,
         WalletScreenModel?>(
       selector: (state) => state.walletScreenModelObj,
       builder: (context, walletScreenModelObj) {
-        return ListView.separated(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          separatorBuilder: (context, index) {
-            return Opacity(
-              opacity: 0.1,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 7.5.v),
-                child: SizedBox(
-                  width: 320.h,
-                  child: Divider(
-                    height: 1.v,
-                    thickness: 1.v,
-                    color: appTheme.gray500.withOpacity(0.39),
-                  ),
-                ),
-              ),
-            );
-          },
-          itemCount: walletScreenModelObj?.transactionItemList.length ?? 0,
-          itemBuilder: (context, index) {
-            TransactionItemModel model =
-                walletScreenModelObj?.transactionItemList[index] ??
-                    TransactionItemModel();
-            return TransactionItemWidget(
-              model,
-            );
-          },
-        );
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 20.h),
+          color: Colors.white, // Set the background color to white
+          child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return SizedBox(
+                height: 15.v,
+              );
+            },
+            itemCount: walletScreenModelObj?.transactionItemList.length ?? 0,
+            itemBuilder: (context, index) {
+              TransactionItemModel model =
+                  walletScreenModelObj?.transactionItemList[index] ??
+                      TransactionItemModel();
+              return TransactionItemWidget(
+                model,
+              );
+            },
+          ),
+        )
+        ;
       },
     );
   }

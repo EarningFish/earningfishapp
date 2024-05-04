@@ -57,7 +57,7 @@ class CustomBottomBarState extends State<CustomBottomBar> {
       child: Opacity(
         opacity: 0.5,
         child: BottomNavigationBar(
-          backgroundColor: appTheme.onBottomContainer,
+          backgroundColor: Colors.blueGrey,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedFontSize: 0,

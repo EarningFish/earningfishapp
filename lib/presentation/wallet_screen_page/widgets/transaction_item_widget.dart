@@ -13,7 +13,7 @@ class TransactionItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomImageView(
@@ -39,38 +39,6 @@ class TransactionItemWidget extends StatelessWidget {
                 transactionItemModelObj.transactionTitl!,
                 style: theme.textTheme.titleSmall,
               ),
-              // SizedBox(
-              //   width: 175.h,
-              //   child:Expanded(
-              //   child: Row(
-              //     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       Text(
-              //         transactionItemModelObj.contactNumber!,
-              //         style: CustomTextStyles.bodySmallBluegray900,
-              //       ),
-              //       Text(
-              //         transactionItemModelObj.transactionDate!,
-              //         style: theme.textTheme.bodySmall,
-              //       ),
-              //       // Text(
-              //       //   transactionItemModelObj.transactionTime!,
-              //       //   style: theme.textTheme.bodySmall,
-              //       // )
-              //       Text(
-              //         '2:00 PM',
-              //         style: TextStyle(
-              //           color: Color(0xFFA5A2A1),
-              //           fontSize: 10,
-              //           fontFamily: 'DM Sans',
-              //           fontWeight: FontWeight.w400,
-              //           height: 0.14,
-              //         ),
-              //       )
-              //     ],
-              //   ),
-              // )
-              // )
               SizedBox(
                   width: 182.h,
                   child: Expanded(
@@ -119,5 +87,4 @@ class TransactionItemWidget extends StatelessWidget {
       ],
     );
   }
-
 }

@@ -187,14 +187,7 @@ class MyProfileScreenPage extends StatelessWidget {
         text: "Profile".tr,
       ),
       actions: [
-        Card(
-          clipBehavior: Clip.antiAlias,
-          elevation: 0,
-          margin: EdgeInsets.symmetric(horizontal: 14.h),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusStyle.circleBorder17,
-          ),
-          child: Container(
+       Container(
             height: 27.v,
             width: 34.h,
             padding: EdgeInsets.symmetric(horizontal: 5.h),
@@ -228,7 +221,7 @@ class MyProfileScreenPage extends StatelessWidget {
               ],
             ),
           ),
-        )
+
       ],
     );
   }
@@ -423,7 +416,7 @@ class MyProfileScreenPage extends StatelessWidget {
           _buildNotificationRow(
             context,
             settingsThree: ImageConstant.imgPlay,
-            notification: "How_to_Use".tr,
+            notification: "How to Use".tr,
           )
         ],
       ),
