@@ -413,7 +413,7 @@ class NoFishFoundTabContainerPageState
     return Container(
       height: 31.v,
       width: 301.h,
-      margin: EdgeInsets.only(right: 19.h),
+      // margin: EdgeInsets.only(right: 20.h,left: 20.h),
       child: TabBar(
         controller: tabviewController,
         labelPadding: EdgeInsets.zero,
@@ -450,7 +450,6 @@ class NoFishFoundTabContainerPageState
         ],
       ),
     );
-
   }
 
   /// Navigates to the previous screen.

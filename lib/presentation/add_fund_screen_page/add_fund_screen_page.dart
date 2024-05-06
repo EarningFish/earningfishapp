@@ -27,7 +27,7 @@ class AddFundScreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
         appBar: _buildAppBar(context),
         body: Container(
           width: double.maxFinite,
@@ -35,21 +35,18 @@ class AddFundScreenPage extends StatelessWidget {
             horizontal: 20.h,
             vertical: 13.v,
           ),
-          child: Column(
-            children: [
-              _buildAvailableCoin(context),
-              SizedBox(height: 20.v),
-              _buildColumnOffer(context),
-              SizedBox(height: 20.v),
-              _buildColumnrecommend(context),
-              SizedBox(height: 20.v),
-              _buildProceedToAdd(context),
-              SizedBox(height: 20.v),
-              _buildFreeCoinValue(context),
-              SizedBox(height: 12.v),
-              _buildWallet(context),
-              SizedBox(height: 5.v)
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                _buildAvailableCoin(context),
+                SizedBox(height: 20.v),
+                _buildColumnOffer(context),
+                SizedBox(height: 20.v),
+                _buildColumnrecommend(context),
+                SizedBox(height: 20.v),
+                _buildProceedToAdd(context),
+              ],
+            ),
           ),
         ),
       ),
@@ -60,8 +57,12 @@ class AddFundScreenPage extends StatelessWidget {
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: 40.h,
-      leading:Icon(
-        Icons.arrow_back_ios_new,
+      height: 50,
+      leading:Padding(
+        padding: const EdgeInsets.only(top:0),
+        child: Icon(
+          Icons.arrow_back_ios_new,
+        ),
       ),
       centerTitle: true,
       title: AppbarTitle(
@@ -158,88 +159,143 @@ class AddFundScreenPage extends StatelessWidget {
 
   /// Section Widget
   Widget _buildEquvalent(BuildContext context) {
-    return CustomElevatedButton(
-      text: "msg_equvalent_1_00_000".tr,
-      rightIcon: Container(
-        margin: EdgeInsets.only(left: 6.h),
-        child: CustomImageView(
-          imagePath: ImageConstant.imgClose,
-          height: 16.adaptSize,
-          width: 16.adaptSize,
-        ),
+   return Container(
+      width: 320,
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(color: Color(0xFF31B77C),
+      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10.0),
+        bottomRight: Radius.circular(10.0),)),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Container(
+                width: double.infinity,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomImageView(
+                      imagePath: ImageConstant.imgFrame40310,
+                      height: 17.adaptSize,
+                      width: 17.adaptSize,
+                      margin: EdgeInsets.only(bottom: 2.v,right: 16),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: 320,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Equvalent = 1,00,000',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontFamily: 'DM Sans',
+                    fontWeight: FontWeight.w500,
+                    height: 0.08,
+                  ),
+                ),
+                const SizedBox(width: 6),
+                CustomImageView(
+                  imagePath: ImageConstant.imgFishCoinIcon,
+                  height: 17.adaptSize,
+                  width: 17.adaptSize,
+                  margin: EdgeInsets.only(bottom: 2.v,right: 16),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
   /// Section Widget
   Widget _buildColumnOffer(BuildContext context) {
-    return Container(
-      decoration: AppDecoration.fillWhiteA.copyWith(
-        borderRadius: BorderRadiusStyle.roundedBorder10,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(height: 20.v),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 20.h),
-              child: Text(
-                "Gift card Valued at 50% off at Earning Fish ".tr,
-                style: theme.textTheme.labelLarge,
-              ),
-            ),
-          ),
-          SizedBox(height: 9.v),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.h),
-            padding: EdgeInsets.symmetric(
-              horizontal: 15.h,
-              vertical: 9.v,
-            ),
-            decoration: AppDecoration.fillIndigo.copyWith(
-              borderRadius: BorderRadiusStyle.roundedBorder6,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 2.v),
-                  child: Text(
-                    "₹ 1,000".tr,
-                    style: theme.textTheme.labelLarge,
-                  ),
+    return SingleChildScrollView(
+      child: Container(
+        decoration: AppDecoration.fillWhiteA.copyWith(
+          borderRadius: BorderRadiusStyle.roundedBorder10,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(height: 20.v),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.h),
+                child: Text(
+                  "Gift card Valued at 50% off at Earning Fish ".tr,
+                  style: theme.textTheme.labelLarge,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 2.v),
-                  child: Text(
-                    "Apply Promo".tr,
-                    style: CustomTextStyles.labelLargeIndigo900,
-                  ),
-                )
-              ],
-            ),
-          ),
-          SizedBox(height: 8.v),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 20.h),
-              child: Text(
-                "Congrate! WALLET10 promocode applied!".tr,
-                style: theme.textTheme.bodySmall,
               ),
             ),
-          ),
-          SizedBox(height: 7.v),
-          CustomImageView(
-            imagePath: ImageConstant.imgFrame40310,
-            height: 10.v,
-            width: 320.h,
-          ),
-          _buildEquvalent(context)
-        ],
+            SizedBox(height: 9.v),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20.h),
+              padding: EdgeInsets.symmetric(
+                horizontal: 15.h,
+                vertical: 9.v,
+              ),
+              decoration: AppDecoration.fillIndigo.copyWith(
+                borderRadius: BorderRadiusStyle.roundedBorder6,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 2.v),
+                    child: Text(
+                      "₹ 1,000".tr,
+                      style: theme.textTheme.labelLarge,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 2.v),
+                    child: Text(
+                      "Apply Promo".tr,
+                      style: CustomTextStyles.labelLargeIndigo900,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(height: 8.v),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 20.h),
+                child: Text(
+                  "Congrate! WALLET10 promocode applied!".tr,
+                  style: theme.textTheme.bodySmall,
+                ),
+              ),
+            ),
+            SizedBox(height: 7.v),
+            CustomImageView(
+              imagePath: ImageConstant.imgFrame40310,
+              height: 10.v,
+              width: 320.h,
+            ),
+            _buildEquvalent(context)
+          ],
+        ),
       ),
     );
   }
@@ -265,57 +321,64 @@ class AddFundScreenPage extends StatelessWidget {
           ),
           SizedBox(height: 9.v),
           Padding(
-            padding: EdgeInsets.only(right: 23.h),
-            child: Row(
-              children: [
-                Container(
-                  decoration: AppDecoration.outlineIndigo.copyWith(
-                    borderRadius: BorderRadiusStyle.roundedBorder6,
-                  ),
-                  child: Container(
-                    width: 80.h,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15.h,
-                      vertical: 5.v,
-                    ),
+            padding: EdgeInsets.only(right: 0.h),
+            child: Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
                     decoration: AppDecoration.outlineIndigo.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder6,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CustomImageView(
-                          imagePath: ImageConstant.img,
-                          height: 5.adaptSize,
-                          width: 5.adaptSize,
-                          margin: EdgeInsets.symmetric(vertical: 6.v),
+                    child: Container(
+                      width: 90.h,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.h,
+                        vertical: 5.v,
+                      ),
+                      decoration: AppDecoration.outlineIndigo.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder6,
+                      ),
+                      child:Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CustomImageView(
+                              imagePath: ImageConstant.img,
+                              height: 5.adaptSize,
+                              width: 5.adaptSize,
+                              margin: EdgeInsets.symmetric(vertical: 6.v),
+                            ),
+                            // Padding(
+                            //   padding: EdgeInsets.only(top: 1.v),
+                              Text(
+                                "+₹1,000".tr,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 12,
+                                  fontFamily: 'DM Sans',
+                                  fontWeight: FontWeight.w500,
+                                  height: 0.10,
+                                ),
+                              ),
+                            // )
+                          ],
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 1.v),
-                          child: Text(
-                            "+₹1,000".tr,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                        )
-                      ],
+                      ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10.h),
-                  child: _buildRecommended(
-                    context,
-                    price: "+₹2,000".tr,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10.h),
-                  child: _buildRecommended(
-                    context,
-                    price: "+₹5,000".tr,
-                  ),
-                )
-              ],
+                  SizedBox(width: 5.v),
+                    _buildRecommended(
+                      context,
+                      price: "+₹2,000".tr,
+                    ),
+                  SizedBox(width: 5.v),
+                      _buildRecommended(
+                      context,
+                      price: "+₹5,000".tr,
+                    ),
+                ],
+              ),
             ),
           )
         ],
@@ -323,87 +386,78 @@ class AddFundScreenPage extends StatelessWidget {
     );
   }
 
+
   /// Section Widget
   Widget _buildProceedToAdd(BuildContext context) {
-    return CustomElevatedButton(
-      height: 56.v,
-      text: "Proceed to Add Fund".tr,
-      buttonStyle: CustomButtonStyles.fillIndigo,
-      buttonTextStyle: theme.textTheme.titleMedium!,
-    );
-  }
-
-  /// Section Widget
-  Widget _buildFreeCoinValue(BuildContext context) {
-    return BlocSelector<AddFundScreenBloc, AddFundScreenState,
-        TextEditingController?>(
-      selector: (state) => state.freeCoinValueController,
-      builder: (context, freeCoinValueController) {
-        return CustomTextFormField(
-          controller: freeCoinValueController,
-          hintText: "lbl_free_coin".tr,
-          prefix: Container(
-            margin: EdgeInsets.fromLTRB(15.h, 11.v, 8.h, 11.v),
-            child: CustomImageView(
-              imagePath: ImageConstant.imgFloatingicon,
-              height: 21.v,
-              width: 20.h,
+    TextEditingController? freeCoinValueController;
+    TextEditingController? walletController;
+    return Column(
+      children: [
+        CustomElevatedButton(
+          height: 56.v,
+          text: "Proceed to Add Fund".tr,
+          buttonStyle: CustomButtonStyles.fillIndigo,
+          buttonTextStyle: theme.textTheme.titleMedium!,
+        ),
+        SizedBox(height: 10.v),
+            CustomTextFormField(
+              controller: freeCoinValueController,
+              hintText: "Free Coin".tr,
+              hintStyle: TextStyle(color: Colors.black,),
+              prefix: Container(
+                margin: EdgeInsets.fromLTRB(15.h, 11.v, 8.h, 11.v),
+                child: CustomImageView(
+                imagePath: ImageConstant.imgFloatingicon,
+                height: 21.v,
+                width: 20.h,
             ),
-          ),
-          prefixConstraints: BoxConstraints(
-            maxHeight: 44.v,
-          ),
-          suffix: Container(
-            margin: EdgeInsets.fromLTRB(30.h, 12.v, 15.h, 12.v),
-            child: CustomImageView(
-              imagePath: ImageConstant.imgArrowdownsline2,
-              height: 20.adaptSize,
-              width: 20.adaptSize,
             ),
-          ),
-          suffixConstraints: BoxConstraints(
-            maxHeight: 44.v,
-          ),
-        );
-      },
-    );
-  }
-
-  /// Section Widget
-  Widget _buildWallet(BuildContext context) {
-    return BlocSelector<AddFundScreenBloc, AddFundScreenState,
-        TextEditingController?>(
-      selector: (state) => state.walletController,
-      builder: (context, walletController) {
-        return CustomTextFormField(
-          controller: walletController,
-          hintText: "msg_wallet_transaction".tr,
-          textInputAction: TextInputAction.done,
-          prefix: Container(
-            margin: EdgeInsets.fromLTRB(10.h, 11.v, 8.h, 11.v),
-            child: CustomImageView(
-              imagePath: ImageConstant.imgWallet,
-              height: 24.adaptSize,
-              width: 24.adaptSize,
+              prefixConstraints: BoxConstraints(
+              maxHeight: 44.v,
             ),
-          ),
-          prefixConstraints: BoxConstraints(
+              suffix: Container(
+              margin: EdgeInsets.fromLTRB(30.h, 12.v, 15.h, 12.v),
+               child: CustomImageView(
+                  imagePath: ImageConstant.imgArrowdownsline2,
+                  height: 20.adaptSize,
+                  width: 20.adaptSize,
+            ),
+            ),
+              suffixConstraints: BoxConstraints(
+              maxHeight: 44.v,
+            ),
+            ),
+        SizedBox(height: 10.v),
+          CustomTextFormField(
+              controller: walletController,
+              hintText: "Wallet Transaction History".tr,
+              hintStyle: TextStyle(color: Colors.black,),
+            textInputAction: TextInputAction.done,
+                prefix: Container(
+                   margin: EdgeInsets.fromLTRB(10.h, 11.v, 8.h, 11.v),
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgWallet,
+                    height: 24.adaptSize,
+                    width: 24.adaptSize,
+              ),
+              ),
+            prefixConstraints: BoxConstraints(
             maxHeight: 46.v,
-          ),
-          suffix: Container(
-            margin: EdgeInsets.fromLTRB(30.h, 13.v, 10.h, 13.v),
-            child: CustomImageView(
-              imagePath: ImageConstant.imgArrowdownsline2,
-              height: 20.adaptSize,
-              width: 20.adaptSize,
             ),
-          ),
+                suffix: Container(
+                    margin: EdgeInsets.fromLTRB(30.h, 13.v, 10.h, 13.v),
+                    child: CustomImageView(
+                      imagePath: ImageConstant.imgArrowdownsline2,
+                      height: 20.adaptSize,
+                      width: 20.adaptSize,
+                    ),
+                    ),
           suffixConstraints: BoxConstraints(
-            maxHeight: 46.v,
+          maxHeight: 46.v,
           ),
           borderDecoration: TextFormFieldStyleHelper.fillWhiteATL8,
-        );
-      },
+          ),
+      ],
     );
   }
 
@@ -417,33 +471,36 @@ class AddFundScreenPage extends StatelessWidget {
         borderRadius: BorderRadiusStyle.roundedBorder6,
       ),
       child: Container(
-        width: 83.h,
+        width: 90.h,
         padding: EdgeInsets.symmetric(
-          horizontal: 15.h,
+          horizontal: 10.h,
           vertical: 5.v,
         ),
         decoration: AppDecoration.outlineIndigo.copyWith(
           borderRadius: BorderRadiusStyle.roundedBorder6,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            CustomImageView(
-              imagePath: ImageConstant.img,
-              height: 5.adaptSize,
-              width: 5.adaptSize,
-              margin: EdgeInsets.symmetric(vertical: 6.v),
-            ),
-            Padding(
-              padding: EdgeInsets.only(top: 1.v),
-              child: Text(
-                price,
-                style: theme.textTheme.labelLarge!.copyWith(
-                  color: theme.colorScheme.errorContainer,
-                ),
+        child: Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomImageView(
+                imagePath: ImageConstant.img,
+                height: 5.adaptSize,
+                width: 5.adaptSize,
+                margin: EdgeInsets.symmetric(vertical: 6.v),
               ),
-            )
-          ],
+               Text(
+                  price,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontFamily: 'DM Sans',
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              // )
+            ],
+          ),
         ),
       ),
     );

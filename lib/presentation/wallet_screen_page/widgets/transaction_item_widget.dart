@@ -23,7 +23,7 @@ class TransactionItemWidget extends StatelessWidget {
           radius: BorderRadius.circular(
             20.h,
           ),
-          margin: EdgeInsets.only(bottom: 17.v),
+          margin: EdgeInsets.only(bottom: 17.v,top: 10,left: 10),
         ),
         Padding(
           padding: EdgeInsets.only(
@@ -69,6 +69,7 @@ class TransactionItemWidget extends StatelessWidget {
           padding: EdgeInsets.only(
             top: 2.v,
             bottom: 21.v,
+            right: 10,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,

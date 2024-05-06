@@ -130,14 +130,14 @@ class UserprofileItemWidget extends StatelessWidget {
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text.rich(
-                          TextSpan(
+                        RichText(
+                          text: TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Value  ',
+                                text: 'Value ',
                                 style: TextStyle(
                                   color: Color(0xFFA6A6A6),
                                   fontSize: 10,
@@ -145,6 +145,9 @@ class UserprofileItemWidget extends StatelessWidget {
                                   fontWeight: FontWeight.w500,
                                   height: 0.13,
                                 ),
+                              ),
+                              WidgetSpan(
+                                child: SizedBox(width: 3,height: 15,), // Add space between text spans
                               ),
                               TextSpan(
                                 text: '1000',
@@ -161,8 +164,8 @@ class UserprofileItemWidget extends StatelessWidget {
                         ),
                         const SizedBox(width: 3),
                         Container(
-                          width: 10,
-                          height: 10,
+                          width: 20,
+                          height: 20,
                           padding: const EdgeInsets.only(
                             top: 0.20,
                             left: 0.19,
@@ -175,8 +178,8 @@ class UserprofileItemWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
-                                width: 9.61,
-                                height: 9.60,
+                                width: 16.61,
+                                height: 16.60,
                                 child: Stack(children: [
                                     CustomImageView(
                                           imagePath: ImageConstant.imgFishCoinIcon,

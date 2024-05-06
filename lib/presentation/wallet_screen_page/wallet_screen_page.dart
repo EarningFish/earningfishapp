@@ -425,43 +425,61 @@ class WalletScreenPage extends StatelessWidget {
     );
   }
   /// Section Widget
+  // Widget _buildTransaction(BuildContext context) {
+  //   return BlocSelector<WalletScreenBloc, WalletScreenState,
+  //       WalletScreenModel?>(
+  //     selector: (state) => state.walletScreenModelObj,
+  //     builder: (context, walletScreenModelObj) {
+  //         return ListView.separated(
+  //           physics: NeverScrollableScrollPhysics(),
+  //           shrinkWrap: true,
+  //           separatorBuilder: (context, index) {
+  //             return SizedBox(
+  //               height: 15.v,
+  //             );
+  //           },
+  //           itemCount: walletScreenModelObj?.transactionItemList.length ?? 0,
+  //           itemBuilder: (context, index) {
+  //             TransactionItemModel model =
+  //                 walletScreenModelObj?.transactionItemList[index] ??
+  //                     TransactionItemModel();
+  //             return TransactionItemWidget(
+  //               model,
+  //             );
+  //           },
+  //         );
+  //     },
+  //   );
+  // }
   Widget _buildTransaction(BuildContext context) {
     return BlocSelector<WalletScreenBloc, WalletScreenState,
         WalletScreenModel?>(
       selector: (state) => state.walletScreenModelObj,
       builder: (context, walletScreenModelObj) {
-        return Container(
-          padding: EdgeInsets.symmetric(horizontal: 20.h),
-          color: Colors.white, // Set the background color to white
-          child: ListView.separated(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            separatorBuilder: (context, index) {
-              return SizedBox(
-                height: 15.v,
-              );
-            },
-            itemCount: walletScreenModelObj?.transactionItemList.length ?? 0,
-            itemBuilder: (context, index) {
-              TransactionItemModel model =
-                  walletScreenModelObj?.transactionItemList[index] ??
-                      TransactionItemModel();
-              return TransactionItemWidget(
-                model,
-              );
-            },
-          ),
-        )
-        ;
+        return ListView.separated(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: 15.v,
+            );
+          },
+          itemCount: walletScreenModelObj?.transactionItemList.length ?? 0,
+          itemBuilder: (context, index) {
+            TransactionItemModel model =
+                walletScreenModelObj?.transactionItemList[index] ??
+                    TransactionItemModel();
+            return Container(
+                  color: Colors.white, // Set the background color to white
+                  child: TransactionItemWidget(
+                    model,
+                  ),
+                );
+          },
+        );
       },
     );
   }
-
-
-
-
-
-
 
   /// Navigates to the previous screen.
   onTapImgCloseone(BuildContext context) {

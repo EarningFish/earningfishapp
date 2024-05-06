@@ -12,6 +12,7 @@ class ImageConstant {
   static String imgFishCoin = '$imagePath/FishCoin.svg';
   static String imgFishCoin2 = '$imagePath/Group.svg';
   static String imgFrame = '$imagePath/Frame.svg';
+  static String imgFrame40310 = '$imagePath/img_frame_40310.svg';
   static String imgCurrentValueVector= '$imagePath/currentValue.png';
 
 // [✅] Withdraw Fund screen images
@@ -492,8 +493,6 @@ class ImageConstant {
   static String imgGroup9417 = '$imagePath/img_group_9417.png';
 
   static String imgImage105 = '$imagePath/img_image_105.png';
-
-  static String imgFrame40310 = '$imagePath/img_frame_40310.svg';
 
   static String img = '$imagePath/img_.svg';
 

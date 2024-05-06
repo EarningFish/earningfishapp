@@ -37,55 +37,57 @@ class NomineeScreen extends StatelessWidget {
             horizontal: 20.h,
             vertical: 22.v,
           ),
-          child: Column(
-            children: [
-              BlocSelector<NomineeBloc, NomineeState, TextEditingController?>(
-                selector: (state) => state.avteroneController,
-                builder: (context, avteroneController) {
-                  return CustomTextFormField(
-                    controller: avteroneController,
-                    hintText: "Nominee".tr,
-                    textInputAction: TextInputAction.done,
-                    prefix: Container(
-                      margin: EdgeInsets.fromLTRB(14.h, 15.v, 8.h, 15.v),
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgPlus1,
-                        height: 20.v,
-                        width: 16.h,
-                      ),
-                    ),
-                    prefixConstraints: BoxConstraints(
-                      maxHeight: 50.v,
-                    ),
-                    suffix: Container(
-                      margin: EdgeInsets.fromLTRB(30.h, 15.v, 14.h, 15.v),
-                      child:
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, AppRoutes.addNomineeDetailsScreen);
-
-                        },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                BlocSelector<NomineeBloc, NomineeState, TextEditingController?>(
+                  selector: (state) => state.avteroneController,
+                  builder: (context, avteroneController) {
+                    return CustomTextFormField(
+                      controller: avteroneController,
+                      hintText: "Nominee".tr,
+                      textInputAction: TextInputAction.done,
+                      prefix: Container(
+                        margin: EdgeInsets.fromLTRB(14.h, 15.v, 8.h, 15.v),
                         child: CustomImageView(
-                          imagePath: ImageConstant.imgArrowdownsline2,
-                          height: 20.adaptSize,
-                          width: 20.adaptSize,
+                          imagePath: ImageConstant.imgPlus1,
+                          height: 20.v,
+                          width: 16.h,
                         ),
                       ),
-                    ),
-                    suffixConstraints: BoxConstraints(
-                      maxHeight: 50.v,
-                    ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 15.v),
-                    borderDecoration:
-                        TextFormFieldStyleHelper.fillOnPrimaryContainer,
-                  );
-                },
-              ),
-              SizedBox(height: 21.v),
-              _buildRowLineEight(context),
-              SizedBox(height: 21.v),
-              _buildUserprofile(context)
-            ],
+                      prefixConstraints: BoxConstraints(
+                        maxHeight: 50.v,
+                      ),
+                      suffix: Container(
+                        margin: EdgeInsets.fromLTRB(30.h, 15.v, 14.h, 15.v),
+                        child:
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoutes.addNomineeDetailsScreen);
+            
+                          },
+                          child: CustomImageView(
+                            imagePath: ImageConstant.imgArrowdownsline2,
+                            height: 20.adaptSize,
+                            width: 20.adaptSize,
+                          ),
+                        ),
+                      ),
+                      suffixConstraints: BoxConstraints(
+                        maxHeight: 50.v,
+                      ),
+                      contentPadding: EdgeInsets.symmetric(vertical: 15.v),
+                      borderDecoration:
+                          TextFormFieldStyleHelper.fillOnPrimaryContainer,
+                    );
+                  },
+                ),
+                SizedBox(height: 21.v),
+                _buildRowLineEight(context),
+                SizedBox(height: 21.v),
+                _buildUserprofile(context)
+              ],
+            ),
           ),
         ),
       ),
