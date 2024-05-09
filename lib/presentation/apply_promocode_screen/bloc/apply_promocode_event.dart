@@ -8,6 +8,7 @@ class ApplyPromocodeEvent extends Equatable {
   List<Object?> get props => [];
 }
 
+/// Event that is dispatched when the promocode  is added.
 class ApplyPromocodeInitialEvent extends ApplyPromocodeEvent {
   @override
   List<Object?> get props => [];
