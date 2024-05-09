@@ -257,7 +257,6 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
         buttonTextStyle: theme.textTheme.titleMedium!,
         onPressed: () {
           if (_formKey.currentState!.validate()) {}
-          // Navigator.pushNamed(context, AppRoutes.authenticationRequiredScreen);
         },
       ),
     );
