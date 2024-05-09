@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guessme_s_application1/presentation/apply_promocode_screen/apply_promocode_screen.dart';
 import '../presentation/add_email_address_screen/add_email_address_screen.dart';
 import '../presentation/add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../presentation/add_phone_number_screen/add_phone_number_screen.dart';
@@ -41,9 +42,11 @@ class AppRoutes {
 
   static const String enterOtpScreen = '/enter_your_otp_screen';
 
-  static const String forgotPasswordScreenOneScreen = '/forgot_password_screen_one_screen';
+  static const String forgotPasswordScreenOneScreen =
+      '/forgot_password_screen_one_screen';
 
-  static const String forgotPasswordConfirmScreen = '/forgot_password_confirm_screen_one_screen';
+  static const String forgotPasswordConfirmScreen =
+      '/forgot_password_confirm_screen_one_screen';
 
   static const String initialRoute = '/initialRoute';
 
@@ -51,7 +54,8 @@ class AppRoutes {
 
   static const String continueWithEmailScreen = '/continue_with_email_screen';
 
-  static const String continueWithMobileNumberScreen = '/continue_with_mobile_number_screen';
+  static const String continueWithMobileNumberScreen =
+      '/continue_with_mobile_number_screen';
 
   static const String signUpScreen = '/sign_up_screen';
 
@@ -59,23 +63,24 @@ class AppRoutes {
 
   static const String signInWithPassword = '/sign_in_with_password_screen';
 
-  static const String otpForConfirmPassword= '/otp_for_confirm_password';
+  static const String otpForConfirmPassword = '/otp_for_confirm_password';
 
-  static const String profileScreen= '/my_profile_screen_page';
+  static const String profileScreen = '/my_profile_screen_page';
 
-  static const String profileScreenKyc= '/my_profile_screen_kyc_page';
+  static const String profileScreenKyc = '/my_profile_screen_kyc_page';
 
-  static const String emailAddressScreen= '/add_email_address_screen';
+  static const String emailAddressScreen = '/add_email_address_screen';
 
-  static const String addPhoneNumberScreen= '/add_phone_number_screen';
+  static const String addPhoneNumberScreen = '/add_phone_number_screen';
 
-  static const String nomineeScreen= '/nominee_screen';
+  static const String nomineeScreen = '/nominee_screen';
 
-  static const String addNomineeDetailsScreen= '/add_nominee_details_screen';
+  static const String addNomineeDetailsScreen = '/add_nominee_details_screen';
 
   static const String playScreenPage = '/play_screen_page';
 
-  static const String playScreenContainerScreen = '/play_screen_container_screen';
+  static const String playScreenContainerScreen =
+      '/play_screen_container_screen';
 
   static const String myFishScreen = '/my_fish_screen_page';
 
@@ -87,6 +92,7 @@ class AppRoutes {
 
   static const String sellerSubScreen = '/seller_screen_page';
 
+  static const String appiyPromocadeScreen = '/appiy_promocade_screen';
 
   static Map<String, WidgetBuilder> get routes => {
         splashScreen: SplashScreen.builder,
@@ -99,25 +105,25 @@ class AppRoutes {
         playScreenContainerScreen: PlayScreenContainerScreen.builder,
         enterOtpScreen: EnterYourOtpScreen.builder,
         forgotPasswordScreenOneScreen: ForgotPasswordScreenOneScreen.builder,
-       forgotPasswordConfirmScreen: ForgotPasswordConfirmScreen.builder,
-       changeCurrencyScreen: ChangeCurrencyScreen.builder,
-       signUpScreen: SignUpScreen.builder,
-       continueWithEmailScreen: ContinueWithEmailScreen.builder,
-       continueWithMobileNumberScreen: ContinueWithMobileNumberScreen.builder,
-       signUpOtpScreen: EnterYourOtpScreen.builder,
-       signInWithPassword: SignInWithPassword.builder,
-       otpForConfirmPassword:OtpConfirmPasswordScreen.builder,
-       profileScreen:MyProfileScreenPage.builder,
-       profileScreenKyc:MyProfileScreenKycPage.builder,
-       addPhoneNumberScreen:AddPhoneNumberScreen.builder,
-       emailAddressScreen:AddEmailAddressScreen.builder,
-       nomineeScreen:NomineeScreen.builder,
-       addNomineeDetailsScreen:AddNomineeDetailsScreen.builder,
-        myFishScreen:MyFishScreenPage.builder,
-        walletScreen:WalletScreenPage.builder,
-        myFishMainScreen:NoFishFoundTabContainerPage.builder,
-        sellerScreen:SellerTabContainerPage.builder,
-        sellerSubScreen:SellerScreenPage.builder,
-
-  };
+        forgotPasswordConfirmScreen: ForgotPasswordConfirmScreen.builder,
+        changeCurrencyScreen: ChangeCurrencyScreen.builder,
+        signUpScreen: SignUpScreen.builder,
+        continueWithEmailScreen: ContinueWithEmailScreen.builder,
+        continueWithMobileNumberScreen: ContinueWithMobileNumberScreen.builder,
+        signUpOtpScreen: EnterYourOtpScreen.builder,
+        signInWithPassword: SignInWithPassword.builder,
+        otpForConfirmPassword: OtpConfirmPasswordScreen.builder,
+        profileScreen: MyProfileScreenPage.builder,
+        profileScreenKyc: MyProfileScreenKycPage.builder,
+        addPhoneNumberScreen: AddPhoneNumberScreen.builder,
+        emailAddressScreen: AddEmailAddressScreen.builder,
+        nomineeScreen: NomineeScreen.builder,
+        addNomineeDetailsScreen: AddNomineeDetailsScreen.builder,
+        myFishScreen: MyFishScreenPage.builder,
+        walletScreen: WalletScreenPage.builder,
+        myFishMainScreen: NoFishFoundTabContainerPage.builder,
+        sellerScreen: SellerTabContainerPage.builder,
+        sellerSubScreen: SellerScreenPage.builder,
+        appiyPromocadeScreen: ApplyPromocodeScreen.builder,
+      };
 }

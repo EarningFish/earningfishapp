@@ -57,7 +57,8 @@ class AuthenticationRequiredScreen extends StatelessWidget {
                       right: 52.h,
                     ),
                     child: Text(
-                      "We've sent a one time password (OTP) to the mobile number above. Please enter it to complete verification.".tr,
+                      "We've sent a one time password (OTP) to the mobile number above. Please enter it to complete verification."
+                          .tr,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.bodyMediumOnErrorContainer_1
@@ -118,26 +119,27 @@ class AuthenticationRequiredScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 20.h),
                   buttonTextStyle: theme.textTheme.titleMedium!,
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen);
+                    Navigator.pushNamed(
+                        context, AppRoutes.playScreenContainerScreen);
                   },
                 ),
                 SizedBox(height: 20.v),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, AppRoutes.signInWithPassword);
-              },
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "sign in with your password".tr,
-                      style: CustomTextStyles.bodySmallPrimary,
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.signInWithPassword);
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "sign in with your password".tr,
+                          style: CustomTextStyles.bodySmallPrimary,
+                        )
+                      ],
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-                textAlign: TextAlign.left,
-              ),
-            ),
               ],
             ),
           ),

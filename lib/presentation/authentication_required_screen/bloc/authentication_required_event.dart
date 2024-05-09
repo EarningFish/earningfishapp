@@ -15,8 +15,6 @@ class AuthenticationRequiredInitialEvent extends AuthenticationRequiredEvent {
   List<Object?> get props => [];
 }
 
-///event for OTP auto fill
-
 // ignore_for_file: must_be_immutable
 class ChangeOTPEvent extends AuthenticationRequiredEvent {
   ChangeOTPEvent({required this.code});
