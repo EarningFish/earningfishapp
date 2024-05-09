@@ -3,21 +3,21 @@ import '../core/app_export.dart';
 import 'base_button.dart';
 
 class CustomElevatedButton extends BaseButton {
-  CustomElevatedButton(
-      {Key? key,
-      this.decoration,
-      this.leftIcon,
-      this.rightIcon,
-      EdgeInsets? margin,
-      VoidCallback? onPressed,
-      ButtonStyle? buttonStyle,
-      Alignment? alignment,
-      TextStyle? buttonTextStyle,
-      bool? isDisabled,
-      double? height,
-      double? width,
-      required String text,})
-      : super(
+  CustomElevatedButton({
+    Key? key,
+    this.decoration,
+    this.leftIcon,
+    this.rightIcon,
+    EdgeInsets? margin,
+    VoidCallback? onPressed,
+    ButtonStyle? buttonStyle,
+    Alignment? alignment,
+    TextStyle? buttonTextStyle,
+    bool? isDisabled,
+    double? height,
+    double? width,
+    required String text,
+  }) : super(
           text: text,
           onPressed: onPressed,
           buttonStyle: buttonStyle,
