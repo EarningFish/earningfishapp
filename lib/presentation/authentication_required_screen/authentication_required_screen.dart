@@ -80,7 +80,8 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                       right: 52.h,
                     ),
                     child: Text(
-                      "We've sent a one time password (OTP) to the mobile number above. Please enter it to complete verification.".tr,
+                      "We've sent a one time password (OTP) to the mobile number above. Please enter it to complete verification."
+                          .tr,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.bodyMediumOnErrorContainer_1
@@ -136,6 +137,7 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                   text: "Submit".tr,
                   margin: EdgeInsets.symmetric(horizontal: 20.h),
                   buttonTextStyle: theme.textTheme.titleMedium!,
+<<<<<<< HEAD
                   // onPressed: () {
                   //   if (_isButtonEnabled) {
                   //     if (_otpController.text.isEmpty) {
@@ -203,6 +205,13 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                       }
                     }
                     ),
+=======
+                  onPressed: () {
+                    Navigator.pushNamed(
+                        context, AppRoutes.playScreenContainerScreen);
+                  },
+                ),
+>>>>>>> f35cb409e419b0fc857d2ef7eb2a61e9d9db8d7a
                 SizedBox(height: 20.v),
                 GestureDetector(
                   onTap: () {
