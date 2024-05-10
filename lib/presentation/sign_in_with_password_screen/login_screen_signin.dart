@@ -239,6 +239,7 @@ class SignInWithPassword extends StatelessWidget {
                 controller: emailController,
                 hintText: "enter mobile number".tr,
                 textInputType: TextInputType.emailAddress,
+                maxLength: 10,
                 validator: (value) {
                   if (value == null ||
                       (!isValidEmail(value, isRequired: true))) {

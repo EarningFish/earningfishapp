@@ -119,6 +119,8 @@ class PlayScreenContainerScreen extends StatelessWidget {
         return SellerTabContainerPage.builder(context);
       case AppRoutes.sellerSubScreen:
         return SellerScreenPage.builder(context);
+      case AppRoutes.playScreenContainerScreen:
+        return PlayScreenContainerScreen.builder(context);
       default:
         return DefaultWidget();
     }

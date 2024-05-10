@@ -5,20 +5,20 @@ part of 'authentication_required_bloc.dart';
 // ignore_for_file: must_be_immutable
 class AuthenticationRequiredState extends Equatable {
   AuthenticationRequiredState(
-      {this.otpController, this.authenticationRequiredModelObj});
+      {this.otpControllers, this.authenticationRequiredModelObj});
 
-  TextEditingController? otpController;
+  TextEditingController? otpControllers;
 
   AuthenticationRequiredModel? authenticationRequiredModelObj;
 
   @override
-  List<Object?> get props => [otpController, authenticationRequiredModelObj];
+  List<Object?> get props => [otpControllers, authenticationRequiredModelObj];
   AuthenticationRequiredState copyWith({
-    TextEditingController? otpController,
-    AuthenticationRequiredModel? authenticationRequiredModelObj,
+    TextEditingController? otpControllers,
+    AuthenticationRequiredModel? authenticationRequiredModelObj, required TextEditingController otpController,
   }) {
     return AuthenticationRequiredState(
-      otpController: otpController ?? this.otpController,
+      otpControllers: otpControllers ?? this.otpControllers,
       authenticationRequiredModelObj:
           authenticationRequiredModelObj ?? this.authenticationRequiredModelObj,
     );

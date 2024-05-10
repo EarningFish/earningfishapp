@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../api/api.dart';
 import '../../core/app_export.dart';
+import '../../util/general_utils.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
@@ -8,28 +10,49 @@ import '../../widgets/custom_pin_code_text_field.dart';
 import 'bloc/authentication_required_bloc.dart';
 import 'models/authentication_required_model.dart';
 
-class AuthenticationRequiredScreen extends StatelessWidget {
-  const AuthenticationRequiredScreen({Key? key})
-      : super(
-          key: key,
-        );
-
-  static Widget builder(BuildContext context) {
+class AuthenticationRequiredScreen extends StatefulWidget {
+  const AuthenticationRequiredScreen({Key? key,required this.mobile, required this.otpDetails}) : super(key: key);
+  final String otpDetails;
+  final String mobile;
+  static Widget builder(BuildContext context, {required String otpDetails,required String mobile}) {
     return BlocProvider<AuthenticationRequiredBloc>(
-      create: (context) =>
-          AuthenticationRequiredBloc(AuthenticationRequiredState(
+      create: (context) => AuthenticationRequiredBloc(AuthenticationRequiredState(
         authenticationRequiredModelObj: AuthenticationRequiredModel(),
       ))
-            ..add(AuthenticationRequiredInitialEvent()),
-      child: AuthenticationRequiredScreen(),
+        ..add(AuthenticationRequiredInitialEvent()),
+      child: AuthenticationRequiredScreen(otpDetails: otpDetails, mobile: mobile,),
     );
+  }
+
+  @override
+  State<AuthenticationRequiredScreen> createState() => _AuthenticationRequiredScreenState();
+}
+
+class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScreen> {
+
+  late TextEditingController _otpController;
+  bool _isButtonEnabled = true;
+  bool isCorrectOTP = false; // Declare the variable at the class level
+  String mobileNumber = "";
+  String otp = "";
+  @override
+  void initState() {
+    super.initState();
+    _otpController = TextEditingController(text: widget.otpDetails);
+    mobileNumber =  widget.mobile;
+    print(widget.otpDetails);
+  }
+
+  @override
+  void dispose() {
+    _otpController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // resizeToAvoidBottomInset: false,
         appBar: _buildAppBar(context),
         body: SizedBox(
           width: SizeUtils.width,
@@ -42,8 +65,8 @@ class AuthenticationRequiredScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 20.h),
                     child: Text(
-                      "msg_in_91_7503308000".tr,
-                      style: CustomTextStyles.titleMediumBlack90018,
+                      "IN +91 ${widget.mobile}".tr,
+                        style: CustomTextStyles.titleMediumBlack90018,
                     ),
                   ),
                 ),
@@ -73,18 +96,14 @@ class AuthenticationRequiredScreen extends StatelessWidget {
                     left: 53.h,
                     right: 52.h,
                   ),
-                  child: BlocSelector<AuthenticationRequiredBloc,
-                      AuthenticationRequiredState, TextEditingController?>(
-                    selector: (state) => state.otpController,
-                    builder: (context, otpController) {
-                      return CustomPinCodeTextField(
-                        context: context,
-                        controller: otpController,
-                        onChanged: (value) {
-                          otpController?.text = value;
-                        },
-                      );
-                    },
+                    child: CustomPinCodeTextField(
+                      context: context,
+                      controller: TextEditingController(text: widget.otpDetails),
+                      onChanged: (value) {
+                        setState(() {
+                         _otpController.text= value;
+                        });
+                      },
                   ),
                 ),
                 SizedBox(height: 31.v),
@@ -117,27 +136,90 @@ class AuthenticationRequiredScreen extends StatelessWidget {
                   text: "Submit".tr,
                   margin: EdgeInsets.symmetric(horizontal: 20.h),
                   buttonTextStyle: theme.textTheme.titleMedium!,
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen);
-                  },
-                ),
+                  // onPressed: () {
+                  //   if (_isButtonEnabled) {
+                  //     if (_otpController.text.isEmpty) {
+                  //       Util.toastMessage("Please enter otp", context);
+                  //     } else {
+                  //       setState(() {
+                  //         _isButtonEnabled = false;
+                  //       });
+                  //       ApiServices.verifyOtp(_otpController.text,widget.mobile,).then((value) {
+                  //         print("OTP value: $value");
+                  //         print(widget.mobile);
+                  //         print(_otpController);
+                  //         Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen)
+                  //             .then((_) {
+                  //           setState(() {
+                  //             _isButtonEnabled = true;
+                  //           });
+                  //         }).catchError((error) {
+                  //           setState(() {
+                  //             _isButtonEnabled = true;
+                  //           });
+                  //         });
+                  //       });
+                  //     }
+                  //   }
+                  // },
+                    onPressed: () {
+                      if (_isButtonEnabled) {
+                        if (_otpController.text.isEmpty) {
+                          Util.toastMessage("Please enter OTP", context);
+                        } else {
+                          setState(() {
+                            _isButtonEnabled = false;
+                          });
+                          ApiServices.verifyOtp(_otpController.text, widget.mobile).then((otpDetails) {
+                            setState(() {
+                              _isButtonEnabled = true;
+                            });
+                            otp = widget.otpDetails;
+                            print("OTP value: $otp");
+                            print(widget.mobile);
+                            print(_otpController);
+                            if (_otpController.text == otp) {
+                              Util.toastMessage("OTP verified successfully", context);
+                              Future.delayed(Duration(seconds: 4), () {
+                                Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen)
+                                    .then((_) {
+                                  setState(() {
+                                    _isButtonEnabled = true;
+                                  });
+                                });
+                              });
+                            }  else {
+                              Util.toastMessage("Wrong OTP, please try again", context);
+                            }
+                          }).catchError((error) {
+                            setState(() {
+                              _isButtonEnabled = true;
+                            });
+                            // Handle error if any
+                            print("Error: $error");
+                            Util.toastMessage("An error occurred, please try again later", context);
+                          });
+                        }
+                      }
+                    }
+                    ),
                 SizedBox(height: 20.v),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, AppRoutes.signInWithPassword);
-              },
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "sign in with your password".tr,
-                      style: CustomTextStyles.bodySmallPrimary,
-                    )
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.signInWithPassword);
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "sign in with your password".tr,
+                          style: CustomTextStyles.bodySmallPrimary,
+                        )
+                      ],
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-                textAlign: TextAlign.left,
-              ),
-            ),
               ],
             ),
           ),
@@ -146,7 +228,6 @@ class AuthenticationRequiredScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       height: 90.v,

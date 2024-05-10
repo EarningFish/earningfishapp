@@ -429,27 +429,44 @@ class NoFishFoundTabContainerPageState
           fontFamily: 'DM Sans',
           fontWeight: FontWeight.w500,
         ),
-        indicatorColor: appTheme.indigo900,
+        // indicatorColor: appTheme.indigo900,
+        indicator: UnderlineTabIndicator(
+          borderSide: BorderSide(width: 3.0,color: appTheme.indigo900),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(2),
+            topRight: Radius.circular(2),
+          ),
+        ),
         dividerColor: Colors.transparent,
         tabs: [
-          Tab(
-            child: Text(
-              "Fish Store".tr,
+          SizedBox(
+            width: 88,
+            child: Tab(
+              child: Text(
+                "Fish Store".tr,
+              ),
             ),
           ),
-          Tab(
-            child: Text(
-              "My Fish".tr,
+          SizedBox(
+            width: 88,
+            child: Tab(
+              child: Text(
+                "My Fish".tr,
+              ),
             ),
           ),
-          Tab(
-            child: Text(
-              "Seller".tr,
+          SizedBox(
+            width: 88,
+            child: Tab(
+              child: Text(
+                "Seller".tr,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
+
   }
 
   /// Navigates to the previous screen.

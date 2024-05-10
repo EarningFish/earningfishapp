@@ -91,7 +91,7 @@ class AppRoutes {
   static Map<String, WidgetBuilder> get routes => {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
-        authenticationRequiredScreen: AuthenticationRequiredScreen.builder,
+        // authenticationRequiredScreen: AuthenticationRequiredScreen.builder,
         forgotPasswordScreen: ForgotPasswordScreen.builder,
         appNavigationScreen: AppNavigationScreen.builder,
         initialRoute: SplashScreen.builder,
@@ -118,6 +118,5 @@ class AppRoutes {
         myFishMainScreen:NoFishFoundTabContainerPage.builder,
         sellerScreen:SellerTabContainerPage.builder,
         sellerSubScreen:SellerScreenPage.builder,
-
   };
 }

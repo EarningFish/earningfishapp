@@ -1,19 +1,24 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../api/api.dart';
 import '../../core/app_export.dart';
 import '../../core/utils/validation_functions.dart';
+import '../../util/general_utils.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_form_field.dart';
+import '../authentication_required_screen/authentication_required_screen.dart';
 import 'bloc/login_bloc.dart';
 import 'models/login_model.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key})
       : super(
           key: key,
         );
 
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   static Widget builder(BuildContext context) {
     return BlocProvider<LoginBloc>(
@@ -25,6 +30,15 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _isButtonEnabled = true;
+  TextEditingController _mobileNumberController = TextEditingController();
+  Map<String, dynamic> data = {};
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -1294,10 +1308,50 @@ class LoginScreen extends StatelessWidget {
                   text: "lbl_sign_in".tr,
                   margin: EdgeInsets.symmetric(horizontal: 20.h),
                   buttonTextStyle: theme.textTheme.titleMedium!,
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.authenticationRequiredScreen);
-                  },
-                ),
+                    onPressed: () {
+                      if (_isButtonEnabled) {
+                        if (_mobileNumberController.text.isEmpty) {
+                          Util.toastMessage("Please enter mobile number", context);
+                        } else {
+                          setState(() {
+                            _isButtonEnabled = false;
+                          });
+                          String otpValue;
+                          ApiServices.otpRequest(_mobileNumberController.text).then((response) {
+                            Map<String, dynamic> responseData = json.decode(response);
+                            if (responseData.containsKey("data")) {
+                              otpValue = responseData["data"]["otp"];
+                            } else {
+                              Util.toastMessage("Mobile number not registered,please register", context);
+                              setState(() {
+                                _isButtonEnabled = true;
+                              });
+                              return;
+                            }
+                            print("OTP value: $otpValue");
+                            print(_mobileNumberController.text);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AuthenticationRequiredScreen(
+                                  otpDetails: otpValue,
+                                  mobile: _mobileNumberController.text, // Pass mobile number here
+                                ),
+                              ),
+                            ).then((_) {
+                              setState(() {
+                                _isButtonEnabled = true;
+                              });
+                            }).catchError((error) {
+                              setState(() {
+                                _isButtonEnabled = true;
+                              });
+                            });
+                          });
+                        }
+                      }
+                    }
+                    ),
                 SizedBox(height: 20.v),
                 GestureDetector(
                   onTap: () {
@@ -1328,7 +1382,6 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-
   /// Section Widget
   Widget _buildColumnEmailAddr(BuildContext context) {
     return Container(
@@ -1337,27 +1390,31 @@ class LoginScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "lbl_email_address".tr,
+            "Mobile Number".tr,
             style: theme.textTheme.bodyLarge,
           ),
           SizedBox(height: 6.v),
           BlocSelector<LoginBloc, LoginState, TextEditingController?>(
-            selector: (state) => state.emailController,
+            selector: (state) => state.mobileNumberController,
             builder: (context, emailController) {
               return CustomTextFormField(
-                controller: emailController,
-                hintText: "msg_email_or_phone_number".tr,
+                controller: _mobileNumberController,
+                hintText: "Enter mobile number".tr,
                 textInputAction: TextInputAction.done,
-                textInputType: TextInputType.emailAddress,
+                textInputType: TextInputType.number,
+                keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10),
+                  ],
                 validator: (value) {
-                  if (value == null ||
-                      (!isValidEmail(value, isRequired: true))) {
-                    return "err_msg_please_enter_valid_email".tr;
+                  if (value == null || value.isEmpty) {
+                    return "err_msg_please_enter_valid_mobile_number".tr;
                   }
                   return null;
                 },
               );
-            },
+              },
           )
         ],
       ),

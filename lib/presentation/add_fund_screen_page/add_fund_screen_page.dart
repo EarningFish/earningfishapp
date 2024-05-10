@@ -171,30 +171,29 @@ class AddFundScreenPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Container(
-                width: double.infinity,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomImageView(
-                      imagePath: ImageConstant.imgFrame40310,
-                      height: 17.adaptSize,
-                      width: 17.adaptSize,
-                      margin: EdgeInsets.only(bottom: 2.v,right: 16),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Expanded(
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(top: 10.0),
+          //     child: Container(
+          //       width: double.infinity,
+          //       child: Row(
+          //         mainAxisSize: MainAxisSize.min,
+          //         mainAxisAlignment: MainAxisAlignment.start,
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: [
+          //           CustomImageView(
+          //             imagePath: ImageConstant.imgFrame40310,
+          //             height: 17.adaptSize,
+          //             width: 17.adaptSize,
+          //             margin: EdgeInsets.only(bottom: 2.v,right: 16),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
           const SizedBox(height: 10),
           Container(
-            width: 320,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -288,11 +287,11 @@ class AddFundScreenPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 7.v),
-            CustomImageView(
-              imagePath: ImageConstant.imgFrame40310,
-              height: 10.v,
-              width: 320.h,
-            ),
+            // CustomImageView(
+            //   imagePath: ImageConstant.imgFrame40310,
+            //   height: 10.v,
+            //   width: 320.h,
+            // ),
             _buildEquvalent(context)
           ],
         ),
