@@ -1317,10 +1317,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             _isButtonEnabled = false;
                           });
                           String otpValue;
+                          String mobileNumber;
                           ApiServices.otpRequest(_mobileNumberController.text).then((response) {
                             Map<String, dynamic> responseData = json.decode(response);
                             if (responseData.containsKey("data")) {
                               otpValue = responseData["data"]["otp"];
+                              mobileNumber = responseData["data"]["mobile"];
+
                             } else {
                               Util.toastMessage("Mobile number not registered,please register", context);
                               setState(() {
@@ -1335,7 +1338,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               MaterialPageRoute(
                                 builder: (context) => AuthenticationRequiredScreen(
                                   otpDetails: otpValue,
-                                  mobile: _mobileNumberController.text, // Pass mobile number here
+                                  // mobile: _mobileNumberController.text, // Pass mobile number here
+                                  mobile: mobileNumber,
                                 ),
                               ),
                             ).then((_) {

@@ -94,7 +94,8 @@ class AppRoutes {
 
   static const String appiyPromocadeScreen = '/appiy_promocade_screen';
 
-  static Map<String, WidgetBuilder> get routes => {
+  static Map<String, WidgetBuilder> get routes =>
+      {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
         // authenticationRequiredScreen: AuthenticationRequiredScreen.builder,
@@ -105,28 +106,6 @@ class AppRoutes {
         playScreenContainerScreen: PlayScreenContainerScreen.builder,
         enterOtpScreen: EnterYourOtpScreen.builder,
         forgotPasswordScreenOneScreen: ForgotPasswordScreenOneScreen.builder,
-<<<<<<< HEAD
-       forgotPasswordConfirmScreen: ForgotPasswordConfirmScreen.builder,
-       changeCurrencyScreen: ChangeCurrencyScreen.builder,
-       signUpScreen: SignUpScreen.builder,
-       continueWithEmailScreen: ContinueWithEmailScreen.builder,
-       continueWithMobileNumberScreen: ContinueWithMobileNumberScreen.builder,
-       signUpOtpScreen: EnterYourOtpScreen.builder,
-       signInWithPassword: SignInWithPassword.builder,
-       otpForConfirmPassword:OtpConfirmPasswordScreen.builder,
-       profileScreen:MyProfileScreenPage.builder,
-       profileScreenKyc:MyProfileScreenKycPage.builder,
-       addPhoneNumberScreen:AddPhoneNumberScreen.builder,
-       emailAddressScreen:AddEmailAddressScreen.builder,
-       nomineeScreen:NomineeScreen.builder,
-       addNomineeDetailsScreen:AddNomineeDetailsScreen.builder,
-        myFishScreen:MyFishScreenPage.builder,
-        walletScreen:WalletScreenPage.builder,
-        myFishMainScreen:NoFishFoundTabContainerPage.builder,
-        sellerScreen:SellerTabContainerPage.builder,
-        sellerSubScreen:SellerScreenPage.builder,
-  };
-=======
         forgotPasswordConfirmScreen: ForgotPasswordConfirmScreen.builder,
         changeCurrencyScreen: ChangeCurrencyScreen.builder,
         signUpScreen: SignUpScreen.builder,
@@ -146,7 +125,5 @@ class AppRoutes {
         myFishMainScreen: NoFishFoundTabContainerPage.builder,
         sellerScreen: SellerTabContainerPage.builder,
         sellerSubScreen: SellerScreenPage.builder,
-        appiyPromocadeScreen: ApplyPromocodeScreen.builder,
       };
->>>>>>> f35cb409e419b0fc857d2ef7eb2a61e9d9db8d7a
 }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../../api/api.dart';
 import '../../core/app_export.dart';
@@ -9,6 +10,7 @@ import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_pin_code_text_field.dart';
 import 'bloc/authentication_required_bloc.dart';
 import 'models/authentication_required_model.dart';
+import 'models/send_otp_output_model.dart';
 
 class AuthenticationRequiredScreen extends StatefulWidget {
   const AuthenticationRequiredScreen({Key? key,required this.mobile, required this.otpDetails}) : super(key: key);
@@ -29,28 +31,31 @@ class AuthenticationRequiredScreen extends StatefulWidget {
 }
 
 class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScreen> {
-
+  TextEditingController otpController = TextEditingController();
   late TextEditingController _otpController;
   bool _isButtonEnabled = true;
   bool isCorrectOTP = false; // Declare the variable at the class level
   String mobileNumber = "";
   String otp = "";
+  String otpResend = "";
   @override
   void initState() {
     super.initState();
-    _otpController = TextEditingController(text: widget.otpDetails);
+    // otpController = TextEditingController(text: widget.otpDetails);
     mobileNumber =  widget.mobile;
-    print(widget.otpDetails);
+    // otp= widget.otpDetails;
   }
 
   @override
   void dispose() {
-    _otpController.dispose();
+    otpController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.otpDetails);
+    print(widget.mobile);
     return SafeArea(
       child: Scaffold(
         appBar: _buildAppBar(context),
@@ -99,10 +104,10 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                   ),
                     child: CustomPinCodeTextField(
                       context: context,
-                      controller: TextEditingController(text: widget.otpDetails),
+                      controller: otpController,
                       onChanged: (value) {
                         setState(() {
-                         _otpController.text= value;
+                          otpController.text= value;
                         });
                       },
                   ),
@@ -119,9 +124,14 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "lbl_resend_otp".tr,
-                      style: theme.textTheme.bodySmall,
+                    TextButton(
+                      onPressed: () {
+
+                      },
+                        child: Text(
+                        "lbl_resend_otp".tr,
+                        style: theme.textTheme.bodySmall,
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 5.h),
@@ -137,50 +147,23 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                   text: "Submit".tr,
                   margin: EdgeInsets.symmetric(horizontal: 20.h),
                   buttonTextStyle: theme.textTheme.titleMedium!,
-<<<<<<< HEAD
-                  // onPressed: () {
-                  //   if (_isButtonEnabled) {
-                  //     if (_otpController.text.isEmpty) {
-                  //       Util.toastMessage("Please enter otp", context);
-                  //     } else {
-                  //       setState(() {
-                  //         _isButtonEnabled = false;
-                  //       });
-                  //       ApiServices.verifyOtp(_otpController.text,widget.mobile,).then((value) {
-                  //         print("OTP value: $value");
-                  //         print(widget.mobile);
-                  //         print(_otpController);
-                  //         Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen)
-                  //             .then((_) {
-                  //           setState(() {
-                  //             _isButtonEnabled = true;
-                  //           });
-                  //         }).catchError((error) {
-                  //           setState(() {
-                  //             _isButtonEnabled = true;
-                  //           });
-                  //         });
-                  //       });
-                  //     }
-                  //   }
-                  // },
                     onPressed: () {
                       if (_isButtonEnabled) {
-                        if (_otpController.text.isEmpty) {
+                        if (otpController.text.isEmpty) {
                           Util.toastMessage("Please enter OTP", context);
                         } else {
                           setState(() {
                             _isButtonEnabled = false;
                           });
-                          ApiServices.verifyOtp(_otpController.text, widget.mobile).then((otpDetails) {
+                          ApiServices.verifyOtp(otpController.text, widget.mobile).then((otpDetails) {
                             setState(() {
                               _isButtonEnabled = true;
                             });
                             otp = widget.otpDetails;
                             print("OTP value: $otp");
                             print(widget.mobile);
-                            print(_otpController);
-                            if (_otpController.text == otp) {
+                            print(otpDetails);
+                            if (otpController.text  == otp) {
                               Util.toastMessage("OTP verified successfully", context);
                               Future.delayed(Duration(seconds: 4), () {
                                 Navigator.pushNamed(context, AppRoutes.playScreenContainerScreen)
@@ -204,14 +187,8 @@ class _AuthenticationRequiredScreenState extends State<AuthenticationRequiredScr
                         }
                       }
                     }
-                    ),
-=======
-                  onPressed: () {
-                    Navigator.pushNamed(
-                        context, AppRoutes.playScreenContainerScreen);
-                  },
+
                 ),
->>>>>>> f35cb409e419b0fc857d2ef7eb2a61e9d9db8d7a
                 SizedBox(height: 20.v),
                 GestureDetector(
                   onTap: () {

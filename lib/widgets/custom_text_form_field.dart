@@ -237,7 +237,7 @@ class CustomTextFormField extends StatelessWidget {
         }
       },
       autofocus: autofocus!,
-      style: textStyle ?? Theme.of(context).textTheme.bodyText1,
+      style: textStyle ?? Theme.of(context).textTheme.bodyMedium,
       obscureText: obscureText!,
       textInputAction: textInputAction!,
       keyboardType: keyboardType, // Use the defined keyboardType
