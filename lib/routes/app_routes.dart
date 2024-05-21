@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guessme_s_application1/presentation/apply_promocode_screen/apply_promocode_screen.dart';
+import '../presentation/add_bank_details_screen_page/add_bank_details_screen_container1_page.dart';
 import '../presentation/add_email_address_screen/add_email_address_screen.dart';
 import '../presentation/add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../presentation/add_phone_number_screen/add_phone_number_screen.dart';
@@ -94,10 +95,15 @@ class AppRoutes {
 
   static const String appiyPromocadeScreen = '/appiy_promocade_screen';
 
+  static const String addBankDetailsScreen = '/add_bank_details_screen_page';
+
+
   static Map<String, WidgetBuilder> get routes =>
       {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
+        addBankDetailsScreen: AddBankDetailsScreen.builder,
+
         // authenticationRequiredScreen: AuthenticationRequiredScreen.builder,
         forgotPasswordScreen: ForgotPasswordScreen.builder,
         appNavigationScreen: AppNavigationScreen.builder,

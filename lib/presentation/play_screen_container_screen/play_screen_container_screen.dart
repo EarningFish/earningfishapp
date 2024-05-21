@@ -3,6 +3,7 @@ import 'package:guessme_s_application1/presentation/seller_screen_page/my_fish_s
 import 'package:guessme_s_application1/presentation/wallet_screen_page/wallet_screen_page.dart';
 import '../../core/app_export.dart';
 import '../../widgets/custom_bottom_bar.dart';
+import '../add_bank_details_screen_page/add_bank_details_screen_container1_page.dart';
 import '../add_email_address_screen/add_email_address_screen.dart';
 import '../add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../add_phone_number_screen/add_phone_number_screen.dart';
@@ -121,6 +122,8 @@ class PlayScreenContainerScreen extends StatelessWidget {
         return SellerScreenPage.builder(context);
       case AppRoutes.playScreenContainerScreen:
         return PlayScreenContainerScreen.builder(context);
+      case AppRoutes.addBankDetailsScreen:
+        return AddBankDetailsScreen.builder(context);
       default:
         return DefaultWidget();
     }

@@ -337,10 +337,50 @@ class MyProfileScreenPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _buildNotificationRow(
-            context,
-            settingsThree: ImageConstant.imgBank,
-            notification: "Bank Details".tr,
+          Container(
+            decoration: AppDecoration.outlineBlueGray,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath:  ImageConstant.imgBank,
+                  height: 24.adaptSize,
+                  width: 24.adaptSize,
+                  margin: EdgeInsets.only(bottom: 10.v),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 8.h,
+                    top: 4.v,
+                    bottom: 13.v,
+                  ),
+                  child: Text(
+                    "Bank Details",
+                    style: theme.textTheme.bodyMedium!.copyWith(
+                      color: appTheme.black900,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                // CustomImageView(
+                //   imagePath: ImageConstant.imgArrowDownSLine,
+                //   height: 20.adaptSize,
+                //   width: 20.adaptSize,
+                //   margin: EdgeInsets.only(bottom: 13.v),
+                // )
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
+                  },
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowDownSLine,
+                    height: 20.adaptSize,
+                    width: 20.adaptSize,
+                    margin: EdgeInsets.only(bottom: 10.v),),
+                ),
+              ],
+            ),
           ),
           SizedBox(height: 20.v),
           Container(
@@ -353,7 +393,7 @@ class MyProfileScreenPage extends StatelessWidget {
                   imagePath: ImageConstant.imgArrowDown,
                   height: 24.adaptSize,
                   width: 24.adaptSize,
-                  margin: EdgeInsets.only(bottom: 13.v),
+                  margin: EdgeInsets.only(bottom: 10.v),
                 ),
                 Padding(
                   padding: EdgeInsets.only(
@@ -401,23 +441,147 @@ class MyProfileScreenPage extends StatelessWidget {
           //     );
           //   },
           // ),
-          _buildNotificationRow(
-            context,
-            settingsThree: ImageConstant.imgSetting,
-            notification: "Setting".tr,
+          Container(
+            decoration: AppDecoration.outlineBlueGray,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath:  ImageConstant.imgSetting,
+                  height: 24.adaptSize,
+                  width: 24.adaptSize,
+                  margin: EdgeInsets.only(bottom: 10.v),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 8.h,
+                    top: 4.v,
+                    bottom: 13.v,
+                  ),
+                  child: Text(
+                    "Setting",
+                    style: theme.textTheme.bodyMedium!.copyWith(
+                      color: appTheme.black900,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                // CustomImageView(
+                //   imagePath: ImageConstant.imgArrowDownSLine,
+                //   height: 20.adaptSize,
+                //   width: 20.adaptSize,
+                //   margin: EdgeInsets.only(bottom: 13.v),
+                // )
+                GestureDetector(
+                  // onTap: () {
+                  //   Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
+                  // },
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowDownSLine,
+                    height: 20.adaptSize,
+                    width: 20.adaptSize,
+                    margin: EdgeInsets.only(bottom: 10.v),),
+
+                ),
+              ],
+            ),
           ),
+
           SizedBox(height: 20.v),
-          _buildNotificationRow(
-            context,
-            settingsThree: ImageConstant.imgHelpSupport,
-            notification: "Help & Support".tr,
+          Container(
+            decoration: AppDecoration.outlineBlueGray,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath:  ImageConstant.imgHelpSupport,
+                  height: 24.adaptSize,
+                  width: 24.adaptSize,
+                  margin: EdgeInsets.only(bottom: 13.v),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 8.h,
+                    top: 4.v,
+                    bottom: 13.v,
+                  ),
+                  child: Text(
+                    "Help & SupportHelp & Support",
+                    style: theme.textTheme.bodyMedium!.copyWith(
+                      color: appTheme.black900,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                // CustomImageView(
+                //   imagePath: ImageConstant.imgArrowDownSLine,
+                //   height: 20.adaptSize,
+                //   width: 20.adaptSize,
+                //   margin: EdgeInsets.only(bottom: 13.v),
+                // )
+                GestureDetector(
+                  // onTap: () {
+                  //   Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
+                  // },
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowDownSLine,
+                    height: 20.adaptSize,
+                    width: 20.adaptSize,
+                    margin: EdgeInsets.only(bottom: 10.v),),
+                ),
+              ],
+            ),
           ),
+
           SizedBox(height: 20.v),
-          _buildNotificationRow(
-            context,
-            settingsThree: ImageConstant.imgPlay,
-            notification: "How to Use".tr,
-          )
+          Container(
+            decoration: AppDecoration.outlineBlueGray,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomImageView(
+                  imagePath:  ImageConstant.imgPlay,
+                  height: 24.adaptSize,
+                  width: 24.adaptSize,
+                  margin: EdgeInsets.only(bottom: 10.v),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 8.h,
+                    top: 4.v,
+                    bottom: 13.v,
+                  ),
+                  child: Text(
+                    "How to Use",
+                    style: theme.textTheme.bodyMedium!.copyWith(
+                      color: appTheme.black900,
+                    ),
+                  ),
+                ),
+                Spacer(),
+                // CustomImageView(
+                //   imagePath: ImageConstant.imgArrowDownSLine,
+                //   height: 20.adaptSize,
+                //   width: 20.adaptSize,
+                //   margin: EdgeInsets.only(bottom: 13.v),
+                // )
+                GestureDetector(
+                  // onTap: () {
+                  //   Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
+                  // },
+                  child: CustomImageView(
+                    imagePath: ImageConstant.imgArrowDownSLine,
+                    height: 20.adaptSize,
+                    width: 20.adaptSize,
+                    margin: EdgeInsets.only(bottom: 10.v),),
+                ),
+              ],
+            ),
+          ),
+
         ],
       ),
     );
@@ -455,12 +619,23 @@ class MyProfileScreenPage extends StatelessWidget {
             ),
           ),
           Spacer(),
-          CustomImageView(
-            imagePath: ImageConstant.imgArrowDownSLine,
-            height: 20.adaptSize,
-            width: 20.adaptSize,
-            margin: EdgeInsets.only(bottom: 13.v),
-          )
+          // CustomImageView(
+          //   imagePath: ImageConstant.imgArrowDownSLine,
+          //   height: 20.adaptSize,
+          //   width: 20.adaptSize,
+          //   margin: EdgeInsets.only(bottom: 13.v),
+          // )
+          // GestureDetector(
+          //   onTap: () {
+          //     Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
+          //   },
+          //   child: CustomImageView(
+          //     imagePath: ImageConstant.imgArrowDownSLine,
+          //     height: 20.adaptSize,
+          //     width: 20.adaptSize,
+          //     margin: EdgeInsets.symmetric(vertical: 13.v),
+          //   ),
+          // ),
         ],
       ),
     );
