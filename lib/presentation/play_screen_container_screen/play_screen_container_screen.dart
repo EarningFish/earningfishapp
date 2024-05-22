@@ -7,6 +7,7 @@ import '../add_bank_details_screen_page/add_bank_details_screen_container1_page.
 import '../add_email_address_screen/add_email_address_screen.dart';
 import '../add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../add_phone_number_screen/add_phone_number_screen.dart';
+import '../bank_details_screen/bank_details_screen.dart';
 import '../enter_your_otp_screen/enter_your_otp_screen.dart';
 import '../my_fish_main_screen/my_fish_main_screen.dart';
 import '../my_fish_screen_page/my_fish_screen_page.dart';
@@ -124,6 +125,8 @@ class PlayScreenContainerScreen extends StatelessWidget {
         return PlayScreenContainerScreen.builder(context);
       case AppRoutes.addBankDetailsScreen:
         return AddBankDetailsScreen.builder(context);
+      case AppRoutes.bankDetailsScreen:
+        return BankDetailsScreen.builder(context);
       default:
         return DefaultWidget();
     }

@@ -82,9 +82,6 @@ class AddBankDetailsScreen extends StatelessWidget {
                       text: "Submit".tr,
                       buttonTextStyle: CustomTextStyles.titleMediumOnPrimaryContainer,
                       alignment: Alignment.center,
-                      onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.bankDetailsScreen);
-                      },
                     ),
                   )
                 ],

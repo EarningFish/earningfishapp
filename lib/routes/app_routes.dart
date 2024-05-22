@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:guessme_s_application1/presentation/apply_promocode_screen/apply_promocode_screen.dart';
 import '../presentation/add_bank_details_screen_page/add_bank_details_screen_container1_page.dart';
 import '../presentation/add_email_address_screen/add_email_address_screen.dart';
 import '../presentation/add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../presentation/add_phone_number_screen/add_phone_number_screen.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
-import '../presentation/authentication_required_screen/authentication_required_screen.dart';
 import '../presentation/change_currency_screen/change_currency_screen.dart';
 import '../presentation/continue_with_google_screen/continue_with_google_screen.dart';
 import '../presentation/continue_with_mobile_number_screen/create_an_account_screen.dart';
@@ -28,6 +26,7 @@ import '../presentation/sign_up_screen/sign_up_screen.dart';
 import '../presentation/splash_screen/splash_screen.dart';
 import '../presentation/play_screen_page/play_screen_page.dart';
 import '../presentation/wallet_screen_page/wallet_screen_page.dart';
+import '../presentation/bank_details_screen/bank_details_screen.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
@@ -97,6 +96,7 @@ class AppRoutes {
 
   static const String addBankDetailsScreen = '/add_bank_details_screen_page';
 
+  static const String bankDetailsScreen = '/bank_details_screen';
 
   static Map<String, WidgetBuilder> get routes =>
       {
@@ -131,5 +131,7 @@ class AppRoutes {
         myFishMainScreen: NoFishFoundTabContainerPage.builder,
         sellerScreen: SellerTabContainerPage.builder,
         sellerSubScreen: SellerScreenPage.builder,
+        bankDetailsScreen: BankDetailsScreen.builder,
+
       };
 }

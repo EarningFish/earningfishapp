@@ -537,7 +537,7 @@ class MyProfileScreenPage extends StatelessWidget {
 
           SizedBox(height: 20.v),
           Container(
-            decoration: AppDecoration.outlineBlueGray,
+            // decoration: AppDecoration.outlineBlueGray,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -582,60 +582,6 @@ class MyProfileScreenPage extends StatelessWidget {
             ),
           ),
 
-        ],
-      ),
-    );
-  }
-
-  /// Common widget
-  Widget _buildNotificationRow(
-    BuildContext context, {
-    required String settingsThree,
-    required String notification,
-  }) {
-    return Container(
-      decoration: AppDecoration.outlineBlueGray,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomImageView(
-            imagePath: settingsThree,
-            height: 24.adaptSize,
-            width: 24.adaptSize,
-            margin: EdgeInsets.only(bottom: 13.v),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: 8.h,
-              top: 4.v,
-              bottom: 13.v,
-            ),
-            child: Text(
-              notification,
-              style: theme.textTheme.bodyMedium!.copyWith(
-                color: appTheme.black900,
-              ),
-            ),
-          ),
-          Spacer(),
-          // CustomImageView(
-          //   imagePath: ImageConstant.imgArrowDownSLine,
-          //   height: 20.adaptSize,
-          //   width: 20.adaptSize,
-          //   margin: EdgeInsets.only(bottom: 13.v),
-          // )
-          // GestureDetector(
-          //   onTap: () {
-          //     Navigator.pushNamed(context, AppRoutes.addBankDetailsScreen);
-          //   },
-          //   child: CustomImageView(
-          //     imagePath: ImageConstant.imgArrowDownSLine,
-          //     height: 20.adaptSize,
-          //     width: 20.adaptSize,
-          //     margin: EdgeInsets.symmetric(vertical: 13.v),
-          //   ),
-          // ),
         ],
       ),
     );
