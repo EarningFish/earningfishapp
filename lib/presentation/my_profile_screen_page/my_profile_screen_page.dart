@@ -508,7 +508,7 @@ class MyProfileScreenPage extends StatelessWidget {
                     bottom: 13.v,
                   ),
                   child: Text(
-                    "Help & SupportHelp & Support",
+                    "Help & Support",
                     style: theme.textTheme.bodyMedium!.copyWith(
                       color: appTheme.black900,
                     ),

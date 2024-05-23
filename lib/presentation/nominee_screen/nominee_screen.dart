@@ -3,7 +3,6 @@ import '../../core/app_export.dart';
 import '../../widgets/app_bar/appbar_leading_image.dart';
 import '../../widgets/app_bar/appbar_title.dart';
 import '../../widgets/app_bar/custom_app_bar.dart';
-import '../../widgets/custom_text_form_field.dart';
 import 'bloc/nominee_bloc.dart';
 import 'models/nominee_model.dart';
 import 'models/userprofile_item_model.dart';
@@ -43,47 +42,52 @@ class NomineeScreen extends StatelessWidget {
                 BlocSelector<NomineeBloc, NomineeState, TextEditingController?>(
                   selector: (state) => state.avteroneController,
                   builder: (context, avteroneController) {
-                    return CustomTextFormField(
-                      controller: avteroneController,
-                      hintText: "Nominee".tr,
-                      textInputAction: TextInputAction.done,
-                      prefix: Container(
-                        margin: EdgeInsets.fromLTRB(14.h, 15.v, 8.h, 15.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgPlus1,
-                          height: 20.v,
-                          width: 16.h,
-                        ),
-                      ),
-                      prefixConstraints: BoxConstraints(
-                        maxHeight: 50.v,
-                      ),
-                      suffix: Container(
-                        margin: EdgeInsets.fromLTRB(30.h, 15.v, 14.h, 15.v),
-                        child:
-                        GestureDetector(
+                    return TextFormField(
+                      decoration: InputDecoration(
+                        hintText: 'Add Nominee',
+                        hintStyle: TextStyle(color: Color(0xFF080450)), // Set hint text color
+                        prefixIcon: Icon(Icons.add, color: Color(0xFF080450)), // Set prefix icon color
+                        suffixIcon: GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, AppRoutes.addNomineeDetailsScreen);
-            
                           },
-                          child: CustomImageView(
-                            imagePath: ImageConstant.imgArrowdownsline2,
-                            height: 20.adaptSize,
-                            width: 20.adaptSize,
+                          child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xFF080450),
+                          ),
+                        ),
+                        isDense: true,
+                        contentPadding: EdgeInsets.all(14),
+                        fillColor: Colors.white,
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.blueGrey[50]!,
+                            width: 1,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.blueGrey[50]!,
+                            width: 1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide(
+                            color: Colors.blueGrey[50]!,
+                            width: 1,
                           ),
                         ),
                       ),
-                      suffixConstraints: BoxConstraints(
-                        maxHeight: 50.v,
-                      ),
-                      contentPadding: EdgeInsets.symmetric(vertical: 15.v),
-                      borderDecoration:
-                          TextFormFieldStyleHelper.fillOnPrimaryContainer,
                     );
+
                   },
                 ),
                 SizedBox(height: 21.v),
-                _buildRowLineEight(context),
+                _buildDividerWithTextWidget(context),
                 SizedBox(height: 21.v),
                 _buildUserprofile(context)
               ],
@@ -111,41 +115,38 @@ class NomineeScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildRowLineEight(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Opacity(
-          opacity: 0.2,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 9.v,
-              bottom: 8.v,
-            ),
-            child: SizedBox(
-              width: 96.h,
-              child: Divider(),
-            ),
+  Widget _buildDividerWithTextWidget(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 5.h,
+      ),
+      child: Row(
+        children: [
+          Expanded(
+              child: Divider(
+                thickness: 1,
+                color: Colors.grey,
+              )),
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+            child:  Text(
+              'SAVED NOMINEE',
+              style: TextStyle(
+                color: Color(0xFF333333),
+                fontSize: 14,
+                fontFamily: 'DM Sans',
+                fontWeight: FontWeight.w400,
+                height: 0.11,
+              ),
+            )
           ),
-        ),
-        Text(
-          "SAVED NOMINEE".tr.toUpperCase(),
-          style: CustomTextStyles.bodyMediumPrimaryContainer,
-        ),
-        Opacity(
-          opacity: 0.2,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: 9.v,
-              bottom: 8.v,
-            ),
-            child: SizedBox(
-              width: 96.h,
-              child: Divider(),
-            ),
-          ),
-        )
-      ],
+          Expanded(
+              child: Divider(
+                thickness: 1,
+                color: Colors.grey,
+              )),
+        ],
+      ),
     );
   }
 

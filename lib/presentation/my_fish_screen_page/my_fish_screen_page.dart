@@ -5,7 +5,7 @@ import '../../widgets/custom_search_view.dart';
 import 'bloc/my_fish_screen_bloc.dart';
 import 'models/my_fish_screen_model.dart';
 import 'models/userprofile_item_model.dart';
-import 'widgets/userprofile_item_widget.dart'; // ignore_for_file: must_be_immutable
+import 'widgets/userprofile_item_widget.dart';
 
 class MyFishScreenPage extends StatefulWidget {
   const MyFishScreenPage({Key? key})

@@ -286,7 +286,7 @@ class SignInWithPassword extends StatelessWidget {
                     return CustomTextFormField(
                       width: 320.h,
                       controller: passwordController,
-                      hintText: "msg".tr,
+                      hintText: "enter password".tr,
                       textInputAction: TextInputAction.done,
                       textInputType: TextInputType.visiblePassword,
                       alignment: Alignment.center,
@@ -344,7 +344,7 @@ class SignInWithPassword extends StatelessWidget {
                 Navigator.pushNamed(context, AppRoutes.forgotPasswordScreen);
               },
               child: Text(
-                "lbl_forgot_password".tr,
+                "Forget Password".tr,
                 style: CustomTextStyles.bodySmallGray600_1,
               ),
             )

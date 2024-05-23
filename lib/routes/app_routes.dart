@@ -4,6 +4,7 @@ import '../presentation/add_email_address_screen/add_email_address_screen.dart';
 import '../presentation/add_nominee_details_screen/add_nominee_details_screen.dart';
 import '../presentation/add_phone_number_screen/add_phone_number_screen.dart';
 import '../presentation/app_navigation_screen/app_navigation_screen.dart';
+import '../presentation/apply_promocode_screen/apply_promocode_screen.dart';
 import '../presentation/change_currency_screen/change_currency_screen.dart';
 import '../presentation/continue_with_google_screen/continue_with_google_screen.dart';
 import '../presentation/continue_with_mobile_number_screen/create_an_account_screen.dart';
@@ -103,7 +104,7 @@ class AppRoutes {
         splashScreen: SplashScreen.builder,
         loginScreen: LoginScreen.builder,
         addBankDetailsScreen: AddBankDetailsScreen.builder,
-
+        appiyPromocadeScreen: ApplyPromocodeScreen.builder,
         // authenticationRequiredScreen: AuthenticationRequiredScreen.builder,
         forgotPasswordScreen: ForgotPasswordScreen.builder,
         appNavigationScreen: AppNavigationScreen.builder,

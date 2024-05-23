@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guessme_s_application1/presentation/apply_promocode_screen/apply_promocode_screen.dart';
 import 'package:guessme_s_application1/presentation/seller_screen_page/my_fish_screen_page.dart';
 import 'package:guessme_s_application1/presentation/wallet_screen_page/wallet_screen_page.dart';
 import '../../core/app_export.dart';
@@ -127,6 +128,8 @@ class PlayScreenContainerScreen extends StatelessWidget {
         return AddBankDetailsScreen.builder(context);
       case AppRoutes.bankDetailsScreen:
         return BankDetailsScreen.builder(context);
+      case AppRoutes.appiyPromocadeScreen:
+        return ApplyPromocodeScreen.builder(context);
       default:
         return DefaultWidget();
     }

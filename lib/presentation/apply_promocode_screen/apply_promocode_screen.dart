@@ -92,7 +92,7 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
         builder: (context, emailController) {
           return CustomTextFormField(
             controller: emailController,
-            hintText: "Enter Your Promocode".tr,
+            hintText: "Enter Promocode".tr,
             textInputAction: TextInputAction.done,
             textInputType: TextInputType.emailAddress,
             validator: (value) {
@@ -139,7 +139,7 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        height: 122.h,
+        height: 131.5.h,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(16)),
         child: Column(
@@ -147,7 +147,7 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
               child: SizedBox(
-                height: 66.h,
+                height: 75.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -185,7 +185,7 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
                       height: 26.h,
                       width: 53.v,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 223, 217, 217),
+                          color: Color(0xFFE9E9F2),
                           borderRadius: BorderRadius.circular(8)),
                       child: Center(
                         child: Text(
@@ -204,7 +204,7 @@ class _ApplyPromocodeScreenState extends State<ApplyPromocodeScreen> {
             Container(
               height: 30.h,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 243, 240, 240),
+                  color: Color(0x42E9E9F2),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(16),
                   bottomRight: Radius.circular(16),

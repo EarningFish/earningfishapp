@@ -160,7 +160,7 @@ class AddFundScreenPage extends StatelessWidget {
   /// Section Widget
   Widget _buildEquvalent(BuildContext context) {
    return Container(
-      width: 320,
+      width: 400,
       height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(color: Color(0xFF31B77C),
@@ -171,28 +171,6 @@ class AddFundScreenPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Expanded(
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(top: 10.0),
-          //     child: Container(
-          //       width: double.infinity,
-          //       child: Row(
-          //         mainAxisSize: MainAxisSize.min,
-          //         mainAxisAlignment: MainAxisAlignment.start,
-          //         crossAxisAlignment: CrossAxisAlignment.start,
-          //         children: [
-          //           CustomImageView(
-          //             imagePath: ImageConstant.imgFrame40310,
-          //             height: 17.adaptSize,
-          //             width: 17.adaptSize,
-          //             margin: EdgeInsets.only(bottom: 2.v,right: 16),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          const SizedBox(height: 10),
           Container(
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -246,33 +224,42 @@ class AddFundScreenPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 9.v),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.h),
-              padding: EdgeInsets.symmetric(
-                horizontal: 15.h,
-                vertical: 9.v,
-              ),
-              decoration: AppDecoration.fillIndigo.copyWith(
-                borderRadius: BorderRadiusStyle.roundedBorder6,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 2.v),
-                    child: Text(
-                      "₹ 1,000".tr,
-                      style: theme.textTheme.labelLarge,
+            SizedBox(
+              height: 50,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 20.h),
+                // padding: EdgeInsets.symmetric(
+                //   horizontal: 15.h,
+                //   vertical: 9.v,
+                // ),
+                decoration: AppDecoration.fillIndigo.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder6,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 2.v,left: 20),
+                      child: Text(
+                        "₹ 1,000".tr,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 2.v),
-                    child: Text(
-                      "Apply Promo".tr,
-                      style: CustomTextStyles.labelLargeIndigo900,
-                    ),
-                  )
-                ],
+                    Padding(
+                      padding: EdgeInsets.only(top: 2.v),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, AppRoutes.appiyPromocadeScreen);
+                        },
+                        child: Text(
+                          "Apply Promo".tr,
+                          style: CustomTextStyles.labelLargeIndigo900,
+                        ),
+                      )
+
+                    )
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 8.v),

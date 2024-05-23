@@ -108,27 +108,30 @@ class _MyProfileScreenPageState extends State<MyProfileScreenKycPage> {
                       TextEditingController?>(
                     selector: (state) => state.nomineevalueController,
                     builder: (context, nomineevalueController) {
-                      return CustomTextFormField(
-                        controller: nomineevalueController,
-                        hintText: "Nominee".tr,
-                        textInputAction: TextInputAction.done,
-                        suffix: Container(
-                          margin: EdgeInsets.fromLTRB(30.h, 17.v, 16.h, 17.v),
-                          child:
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(context, AppRoutes.nomineeScreen);
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: CustomTextFormField(
+                          controller: nomineevalueController,
+                          hintText: "Nominee".tr,
+                          textInputAction: TextInputAction.done,
+                          suffix: Container(
+                            margin: EdgeInsets.fromLTRB(30.h, 17.v, 16.h, 17.v),
+                            child:
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, AppRoutes.nomineeScreen);
 
-                            },
-                            child: CustomImageView(
-                              imagePath: ImageConstant.imgArrowdownsline2,
-                              height: 20.adaptSize,
-                              width: 20.adaptSize,
+                              },
+                              child: CustomImageView(
+                                imagePath: ImageConstant.imgArrowdownsline2,
+                                height: 20.adaptSize,
+                                width: 20.adaptSize,
+                              ),
                             ),
                           ),
-                        ),
-                        suffixConstraints: BoxConstraints(
-                          maxHeight: 54.v,
+                          suffixConstraints: BoxConstraints(
+                            maxHeight: 54.v,
+                          ),
                         ),
                       );
                     },

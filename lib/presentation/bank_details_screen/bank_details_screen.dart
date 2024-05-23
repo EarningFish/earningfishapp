@@ -50,7 +50,14 @@ class BankDetailsScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 9.v),
                   _buildBankName(context),
-                  SizedBox(height: 10.v),
+                  SizedBox(height: 20.v),
+                  _buildDividerWithTextWidget(context),
+                  SizedBox(height: 20.v),
+                  _bankDetailsColumn(context),
+                  SizedBox(height: 20.v),
+                  _bankDetailsColumn2(context),
+                  SizedBox(height: 20.v),
+
                      ]
                     ),
                   )
@@ -126,68 +133,184 @@ class BankDetailsScreen extends StatelessWidget {
       ],
     );
   }
-
-  Widget _buildContainer(BuildContext context) {
-   return Container(
-      width: 319,
-      height: 22,
+  Widget _buildDividerWithTextWidget(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 5.h,
+      ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Opacity(
-            opacity: 0.20,
-            child: Transform(
-              transform: Matrix4.identity()..translate(0.0, 0.0)..rotateZ(3.14),
-              child: Expanded(
-                child: Container(
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFF333333),
-                      ),
-                    ),
-                  ),
-                ),
+          Expanded(
+              child: Divider(
+                thickness: 1,
+                color: Colors.grey,
+              )),
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0,right: 10.0),
+            child: Text(
+              'BANK DETAILS',
+              style: TextStyle(
+                color: Color(0xFF333333),
+                fontSize: 14,
+                fontFamily: 'DM Sans',
+                fontWeight: FontWeight.w400,
+                height: 0.11,
               ),
             ),
           ),
-          const SizedBox(width: 10),
-          Text(
-            'BANK DETAILS',
-            style: TextStyle(
-              color: Color(0xFF333333),
-              fontSize: 14,
-              fontFamily: 'DM Sans',
-              fontWeight: FontWeight.w400,
-              height: 0.11,
-            ),
-          ),
-          const SizedBox(width: 10),
-          Opacity(
-            opacity: 0.20,
-            child: Transform(
-              transform: Matrix4.identity()..translate(0.0, 0.0)..rotateZ(3.14),
-              child: Expanded(
-                child: Container(
-                  decoration: ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        width: 1,
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        color: Color(0xFF333333),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          Expanded(
+              child: Divider(
+                thickness: 1,
+                color: Colors.grey,
+              )),
         ],
       ),
     );
   }
+
+  Widget _bankDetailsColumn(BuildContext context){
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(padding: EdgeInsets.only(top: 5.v,bottom: 6.v),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                   SizedBox(width: 121.h,
+                   child: RichText(
+                     text: TextSpan(
+                       children: [
+                         TextSpan(
+                           text: 'State Bank of India\n',
+                           style: TextStyle(
+                             color: Colors.black,
+                             fontSize: 14,
+                             fontFamily: 'DM Sans',
+                             fontWeight: FontWeight.w400,
+                             height: 0.11,
+                           ),
+                         ),
+                         TextSpan(
+                             text: '*********1579'.tr,
+                             style: theme.textTheme.bodySmall
+                         )
+                       ],
+                     ),
+                     textAlign: TextAlign.left,
+                   ),
+                   ),
+                    Container(
+                      width: 70,
+                      height: 23,
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: ShapeDecoration(
+                        color: Color(0x3331B77C),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'PRIMARY',
+                            style: TextStyle(
+                              color: Color(0xFF31B77C),
+                              fontSize: 12,
+                              fontFamily: 'DM Sans',
+                              fontWeight: FontWeight.w500,
+                              height: 0.10,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 100.0),
+                child: Icon(Icons.edit,color: Colors.grey,size: 15,),
+              ),
+              Icon(Icons.delete,color: Colors.grey,size: 15,)
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+  Widget _bankDetailsColumn2(BuildContext context){
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(padding: EdgeInsets.only(top: 5.v,bottom: 6.v),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 121.h,
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Bank of Baroda\n',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontFamily: 'DM Sans',
+                                fontWeight: FontWeight.w400,
+                                height: 0.11,
+                              ),
+                            ),
+                            TextSpan(
+                                text: '*********1579'.tr,
+                                style: theme.textTheme.bodySmall
+                            )
+                          ],
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                'Make Primary',
+                style: TextStyle(
+                  color: Color(0xFF080450),
+                  fontSize: 12,
+                  fontFamily: 'DM Sans',
+                  fontWeight: FontWeight.w500,
+                  height: 0.10,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Icon(Icons.edit,color: Colors.grey,size: 15,),
+              ),
+              Icon(Icons.delete,color: Colors.grey,size: 15,)
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
 }
